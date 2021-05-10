@@ -16,7 +16,7 @@ import twosix from "../data/2006";
 export default function DisplacementTime() {
   return (
     <Plot
-      {...defaultValues}
+      {...defaultValues("Displacement Time")}
       layout={{
         xaxis: {
           title: "Time (s)",

@@ -16,7 +16,7 @@ import twosix from "../data/2006";
 export default function ForceDisplacement() {
   return (
     <Plot
-      {...defaultValues}
+      {...defaultValues("Force Displacement")}
       layout={{
         xaxis: {
           title: "Displacement (mm)",

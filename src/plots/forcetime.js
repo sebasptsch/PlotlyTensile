@@ -16,7 +16,7 @@ import twosix from "../data/2006";
 export default function ForceTime() {
   return (
     <Plot
-      {...defaultValues}
+      {...defaultValues("Force Time")}
       layout={{
         xaxis: {
           title: "Time (s)",

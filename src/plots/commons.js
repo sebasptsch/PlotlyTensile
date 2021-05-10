@@ -15,8 +15,13 @@ export const green = [
   "#22543D",
 ];
 
-export const defaultValues = {
-  config: { displaylogo: false },
+export const defaultValues = (graphname) => ({
+  config: {
+    displaylogo: false,
+    toImageButtonOptions: {
+      filename: `Physics Chart${graphname ? ` - ${graphname}` : ""}`,
+    },
+  },
   useResizeHandler: true,
   style: { width: "100%", height: "100%" },
-};
+});
