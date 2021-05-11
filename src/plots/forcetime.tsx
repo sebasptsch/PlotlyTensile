@@ -4,6 +4,7 @@ import { colors, data, defaultValues } from "./commons";
 
 export default function ForceTime() {
   const [errorEnabled, setErrorEnabled] = useState(false);
+  const [alignZero, setAlignZero] = useState(true)
   return (
     <>
       <input
@@ -13,6 +14,13 @@ export default function ForceTime() {
         id="forcetimecheck"
       />
       <label htmlFor="forcetimecheck">Error Bars</label>
+      <input
+        type="checkbox"
+        checked={alignZero}
+        onChange={(e) => setAlignZero(e.target.checked)}
+        id="forcetimecheckzero"
+      />
+      <label htmlFor="forcetimecheckzero">Align Zero</label>
       <Plot
         {...defaultValues("Force Time")}
         layout={{
@@ -25,8 +33,8 @@ export default function ForceTime() {
           title: "Force / Time",
         }}
         data={data.map((line, index) => ({
-          x: line.time.map(xval => xval - line.time[0]),
-          y: line.force.map(yval => yval - line.force[0]),
+          x: alignZero ? line.time.map(xval => xval - line.time[0]) : line.time,
+          y: alignZero ? line.force.map(yval => yval - line.force[0]) : line.force,
           mode: "lines",
           name: line.name,
           error_y: {

@@ -1,8 +1,17 @@
+import { useState } from "react";
 import Plot from "react-plotly.js";
 import { colors, data, defaultValues } from "./commons";
 
 export default function DisplacementTime() {
-  return (
+  const [alignZero, setAlignZero] = useState(true)
+  return (<>
+    <input
+      type="checkbox"
+      checked={alignZero}
+      onChange={(e) => setAlignZero(e.target.checked)}
+      id="forcedisplacementcheckzero"
+    />
+    <label htmlFor="forcedisplacementcheckzero">Align Zero</label>
     <Plot
       {...defaultValues("Displacement Time")}
       layout={{
@@ -15,8 +24,8 @@ export default function DisplacementTime() {
         title: "Displacement / Time",
       }}
       data={data.map((line, index) => ({
-        x: line.time.map(xval => xval - line.time[0]),
-        y: line.displacement.map(yval => yval - line.displacement[0]),
+        x: alignZero ? line.time.map(xval => xval - line.time[0]) : line.time,
+        y: alignZero ? line.displacement.map(yval => yval - line.displacement[0]) : line.displacement,
         mode: "lines",
         name: line.name,
         line: {
@@ -24,5 +33,6 @@ export default function DisplacementTime() {
         },
       }))}
     />
+  </>
   );
 }
