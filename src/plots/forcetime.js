@@ -10,7 +10,9 @@ export default function ForceTime() {
         type="checkbox"
         value={errorEnabled}
         onChange={(e) => setErrorEnabled(e.target.checked)}
+        id="forcetimecheck"
       />
+      <label htmlFor="forcetimecheck">Error Bars</label>
       <Plot
         {...defaultValues("Force Time")}
         layout={{

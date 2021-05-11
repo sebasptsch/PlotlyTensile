@@ -10,7 +10,9 @@ export default function ForceDisplacement() {
         type="checkbox"
         value={errorEnabled}
         onChange={(e) => setErrorEnabled(e.target.checked)}
+        id="forcedisplacementcheck"
       />
+      <label htmlFor="forcedisplacementcheck">Error Bars</label>
       <Plot
         {...defaultValues("Force Displacement")}
         layout={{
