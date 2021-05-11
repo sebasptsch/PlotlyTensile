@@ -25,8 +25,8 @@ export default function ForceTime() {
           title: "Force / Time",
         }}
         data={data.map((line, index) => ({
-          x: line.time,
-          y: line.force,
+          x: line.time.map(xval => xval - line.time[0]),
+          y: line.force.map(yval => yval - line.force[0]),
           mode: "lines",
           name: line.name,
           error_y: {

@@ -25,8 +25,8 @@ export default function ForceDisplacement() {
           title: "Force / Displacement",
         }}
         data={data.map((line, index) => ({
-          x: line.displacement,
-          y: line.force,
+          x: line.displacement.map(xval => xval - line.displacement[0]),
+          y: line.force.map(yval => yval - line.force[0]),
           mode: "lines",
           name: line.name,
           line: {

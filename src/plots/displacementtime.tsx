@@ -15,8 +15,8 @@ export default function DisplacementTime() {
         title: "Displacement / Time",
       }}
       data={data.map((line, index) => ({
-        x: line.time,
-        y: line.displacement,
+        x: line.time.map(xval => xval - line.time[0]),
+        y: line.displacement.map(yval => yval - line.displacement[0]),
         mode: "lines",
         name: line.name,
         line: {
