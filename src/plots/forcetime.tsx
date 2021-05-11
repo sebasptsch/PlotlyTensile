@@ -1,6 +1,6 @@
-import { defaultValues, data, colors } from "./commons";
-import Plot from "react-plotly.js";
 import { useState } from "react";
+import Plot from "react-plotly.js";
+import { colors, data, defaultValues } from "./commons";
 
 export default function ForceTime() {
   const [errorEnabled, setErrorEnabled] = useState(false);
@@ -8,7 +8,7 @@ export default function ForceTime() {
     <>
       <input
         type="checkbox"
-        value={errorEnabled}
+        checked={errorEnabled}
         onChange={(e) => setErrorEnabled(e.target.checked)}
         id="forcetimecheck"
       />

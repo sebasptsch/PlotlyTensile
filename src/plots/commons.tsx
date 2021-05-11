@@ -44,7 +44,7 @@ export const data = [
   twofive,
   twosix,
 ];
-export const defaultValues = (graphname) => ({
+export const defaultValues = (graphname: string) => ({
   config: {
     displaylogo: false,
     toImageButtonOptions: {

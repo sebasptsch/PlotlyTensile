@@ -1,5 +1,5 @@
-import { defaultValues, data, colors } from "./commons";
 import Plot from "react-plotly.js";
+import { colors, data, defaultValues } from "./commons";
 
 export default function DisplacementTime() {
   return (
