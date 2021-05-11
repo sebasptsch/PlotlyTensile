@@ -1,4 +1,4 @@
-export default {
+const data = {
   name: "2001",
   force: [
     0.0263, 0.0267, 0.0281, 0.0361, 0.0413, 0.0466, 0.0514, 0.0561, 0.0613,
@@ -129,3 +129,4 @@ export default {
     3.333,
   ],
 };
+export default data
