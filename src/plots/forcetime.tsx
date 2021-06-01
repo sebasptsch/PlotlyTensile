@@ -4,7 +4,7 @@ import { colors, data, defaultValues } from "./commons";
 
 export default function ForceTime() {
   const [errorEnabled, setErrorEnabled] = useState(false);
-  const [alignZero, setAlignZero] = useState(true)
+  const [alignZero, setAlignZero] = useState(true);
   return (
     <>
       <input
@@ -33,8 +33,10 @@ export default function ForceTime() {
           title: "Force / Time",
         }}
         data={data.map((line, index) => ({
-          x: alignZero ? line.time.map(xval => xval - line.time[0]) : line.time,
-          y: alignZero ? line.force.map(yval => yval - line.force[0]) : line.force,
+          x: line.time,
+          y: alignZero
+            ? line.force.map((yval) => yval - line.force[line.force.length - 1])
+            : line.force,
           mode: "lines",
           name: line.name,
           error_y: {

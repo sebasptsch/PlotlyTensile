@@ -4,7 +4,7 @@ import { colors, data, defaultValues } from "./commons";
 
 export default function ForceDisplacement() {
   const [errorEnabled, setErrorEnabled] = useState(false);
-  const [alignZero, setAlignZero] = useState(true)
+  const [alignZero, setAlignZero] = useState(true);
   return (
     <>
       <input
@@ -33,8 +33,10 @@ export default function ForceDisplacement() {
           title: "Force / Displacement",
         }}
         data={data.map((line, index) => ({
-          x: alignZero ? line.displacement.map(xval => xval - line.displacement[0]) : line.displacement,
-          y: alignZero ? line.force.map(yval => yval - line.force[0]) : line.force,
+          x: line.displacement,
+          y: alignZero
+            ? line.force.map((yval) => yval - line.force[line.force.length - 1])
+            : line.force,
           mode: "lines",
           name: line.name,
           line: {
